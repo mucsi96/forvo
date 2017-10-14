@@ -20,5 +20,5 @@ const request = jest.fn(({ url, method }, cb) => {
 request.__resetMocks = resetMocks;
 request.__setMockResponse = setMockResponse;
 
-module.exports = request;
+export default request;
 
