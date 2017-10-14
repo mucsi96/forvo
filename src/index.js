@@ -15,6 +15,14 @@ function camelCaseToDash( myStr ) {
   return myStr.replace( /([a-z])([A-Z])/g, '$1-$2' ).toLowerCase();
 }
 
+function makeURLCompatible(value) {
+  if (typeof value === 'string') {
+    return value.replace(/ /g, '_').toLowerCase();
+  }
+
+  return value.toString();
+}
+
 const sendForvoRequest = ({ key, action, requiredParams, params = {} }) => {
   checkParameters(requiredParams, params);
   const optionalParams = Object.keys(params).filter(name => !requiredParams.includes(name));
@@ -25,7 +33,7 @@ const sendForvoRequest = ({ key, action, requiredParams, params = {} }) => {
     ...requiredParams.map(name => ({ name, value: params[name] })),
     ...optionalParams.map(name => ({ name, value: params[name] }))
   ].reduce((url, { name, value }) => {
-    return [url, camelCaseToDash(name), value].join('/');
+    return [url, camelCaseToDash(name), makeURLCompatible(value)].join('/');
   }, 'https://apifree.forvo.com');
   return rest.GET(url);
 };
@@ -126,6 +134,19 @@ const forvoApi = ({ key }) => {
      * @param {number} [parameters.minPronunciations] - Values: any integer number. To get only the languagues with, at least, the given number of pronunciations.
      * @returns {Promise<Object>} - Languages availables at Forvo.
      * @see {@link https://api.forvo.com/documentation/language-list|Forgo API documentation}
+     * @example
+     * import forgoApi from 'forgo';
+     *
+     * const forgo = forgoApi({ key: 'your api key' });
+     * const wordPronunciations = await forgo.languageList()
+     * // {
+     * //   attributes: { total: 349 },
+     * //   items:[
+     * //     { code: 'abq', en: 'Abaza' },
+     * //     { code: 'ab', en: 'Abkhazian' },
+     * //     ...
+     * //   ]
+     * // }
      */
     languageList: params => sendForvoRequest({
       key,
@@ -143,6 +164,19 @@ const forvoApi = ({ key }) => {
      * @param {string} [parameters.limit] - Values: any integer number. Max. languages returned. Default is 10.
      * @returns {Promise<Object>} - The most popular languages
      * @see {@link https://api.forvo.com/documentation/language-popular|Forgo API documentation}
+     * @example
+     * import forgoApi from 'forgo';
+     *
+     * const forgo = forgoApi({ key: 'your api key' });
+     * const wordPronunciations = await forgo.popularLanguages()
+     * // {
+     * //   attributes: { total: 10 },
+     * //   items:[
+     * //     { code: 'de', en: 'German' },
+     * //     { code: 'tt', en: 'Tatar' },
+     * //     ...
+     * //   ]
+     * // }
      */
     popularLanguages: params => sendForvoRequest({
       key,

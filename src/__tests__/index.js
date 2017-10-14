@@ -21,6 +21,18 @@ describe('Forvo API', () => {
       expect(actualWordPronunciations).toEqual(expectedWordPronunciations);
     });
 
+    it('Conver parameters to lowercase and replaces spaces with underscores', async () => {
+      const expectedWordPronunciations = ['apple1', 'apple2'];
+      rest.__setMockResponse({
+        method: 'GET',
+        url: 'https://apifree.forvo.com/key/test-api-key/format/json/action/word-pronunciations/word/auf_wiederschauen/language/de',
+        body: expectedWordPronunciations
+      });
+      const forvo = forvoApi({ key: 'test-api-key' });
+      const actualWordPronunciations = await forvo.wordPronunciations({ word: 'auf Wiederschauen', language: 'de' });
+      expect(actualWordPronunciations).toEqual(expectedWordPronunciations);
+    });
+
     it('Throws error if options is not an object', async () => {
       expect.assertions(1);
       const forvo = forvoApi({ key: 'test-api-key' });
