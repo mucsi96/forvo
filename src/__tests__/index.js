@@ -1,5 +1,5 @@
 import rest from '../rest';
-import forvoApi from '../forvo-api';
+import forvoApi from '..';
 
 jest.mock('../rest');
 
