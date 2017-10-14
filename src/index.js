@@ -1,7 +1,7 @@
 import rest from './rest';
 
 const checkParameters = (requiredParams, params) => {
-  if (typeof params !== 'undefined' && typeof params !== 'object') {
+  if (typeof params !== 'object') {
     throw new Error('Parameters should be an object');
   }
   requiredParams.forEach(requiredParam => {
@@ -15,7 +15,7 @@ function camelCaseToDash( myStr ) {
   return myStr.replace( /([a-z])([A-Z])/g, '$1-$2' ).toLowerCase();
 }
 
-const sendForvoRequest = ({ key, action, requiredParams, params }) => {
+const sendForvoRequest = ({ key, action, requiredParams, params = {} }) => {
   checkParameters(requiredParams, params);
   const optionalParams = Object.keys(params).filter(name => !requiredParams.includes(name));
   const url = [
@@ -99,6 +99,16 @@ const forvoApi = ({ key }) => {
      * @param {string} [parameters.language] - To get only the pronunciations recorded in the given language.
      * @returns {Promise<Object>} - Standard (top rated) pronunciation from a word
      * @see {@link https://api.forvo.com/documentation/standard-pronunciation|Forgo API documentation}
+     * @example
+     * import forgoApi from 'forgo';
+     *
+     * const forgo = forgoApi({ key: 'your api key' });
+     * const wordPronunciations = await forgo.standardPronunciation({ word: 'Apfel', language: 'de' })
+     * // {
+     * //   items:[
+     * //     { id: 5943, word: 'apfel', original: 'Apfel', pathmp3: 'https://apifree.forvo.com/audio/3h3h...
+     * //   ]
+     * // }
      */
     standardPronunciation: params => sendForvoRequest({
       key,
