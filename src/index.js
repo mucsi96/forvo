@@ -111,10 +111,10 @@ const forvoApi = ({ key }) => {
      * import forgoApi from 'forgo';
      *
      * const forgo = forgoApi({ key: 'your api key' });
-     * const wordPronunciations = await forgo.standardPronunciation({ word: 'Apfel', language: 'de' })
+     * const wordPronunciations = await forgo.standardPronunciation({ word: 'auf Wiederschauen', language: 'de' })
      * // {
      * //   items:[
-     * //     { id: 5943, word: 'apfel', original: 'Apfel', pathmp3: 'https://apifree.forvo.com/audio/3h3h...
+     * //     { id: 5943, word: 'auf_wiederschauen', original: 'auf Wiederschauen', pathmp3: 'https://apifree.forvo.com/audio/3h3h...
      * //   ]
      * // }
      */
@@ -195,6 +195,19 @@ const forvoApi = ({ key }) => {
      * @param {number} [parameters.page] - Values: any integer number. Set the page results you want to retrieve. Default is 1.
      * @returns {Promise<Object>} - Words starting with a pattern alphabetically ordered with one or more pronunciations
      * @see {@link https://api.forvo.com/documentation/pronounced-words-search|Forgo API documentation}
+     * @example
+     * import forgoApi from 'forgo';
+     *
+     * const forgo = forgoApi({ key: 'your api key' });
+     * const wordPronunciations = await forgo.pronouncedWordsSearch({ search: 'aus', language: 'de' })
+     * // {
+     * //   attributes: attributes: { page: 1, pagesize: 20, total_pages: 7, total: 121 },
+     * //   items:[
+     * //     { id: 20945, word: 'aus', original: 'aus', num_pronunciations: '4', standard_pronunciation: ... },
+     * //     { id: 20945, word: 'aus_dem_weg_gehen', original: 'aus dem Weg gehen', num_pronunciations ... }
+     * //     ...
+     * //   ]
+     * // }
      */
     pronouncedWordsSearch: params => sendForvoRequest({
       key,
@@ -213,6 +226,19 @@ const forvoApi = ({ key }) => {
      * @param {number} [parameters.page] - Values: any integer number. Set the page results you want to retrieve. Default is 1.
      * @returns {Promise<Object>} - Words starting with a pattern alphabetically ordered
      * @see {@link https://api.forvo.com/documentation/words-search|Forgo API documentation}
+     * @example
+     * import forgoApi from 'forgo';
+     *
+     * const forgo = forgoApi({ key: 'your api key' });
+     * const wordPronunciations = await forgo.wordsSearch({ search: 'aus', language: 'de' })
+     * // {
+     * //   attributes: attributes: { page: 1, pagesize: 20, total_pages: 7, total: 121 },
+     * //   items:[
+     * //     { id: 20945, word: 'aus', original: 'aus', num_pronunciations: '4', standard_pronunciation: ... },
+     * //     { id: 20945, word: 'aus_dem_weg_gehen', original: 'aus dem Weg gehen', num_pronunciations ... }
+     * //     ...
+     * //   ]
+     * // }
      */
     wordsSearch: params => sendForvoRequest({
       key,
@@ -229,6 +255,19 @@ const forvoApi = ({ key }) => {
      * @param {number} [parameters.limit] - Values: any integer number. Max. word returned. Default is 1000.
      * @returns {Promise<Object>} - The most popular words with, at least, one pronunciation.
      * @see {@link https://api.forvo.com/documentation/popular-pronounced-words|Forgo API documentation}
+     * @example
+     * import forgoApi from 'forgo';
+     *
+     * const forgo = forgoApi({ key: 'your api key' });
+     * const wordPronunciations = await forgo.popularPronouncedWords({ language: 'de' })
+     * // {
+     * //   attributes: { total: 993 },
+     * //   items:[
+     * //     { id: 5619, word: 'adidas', original: 'Adidas', num_pronunciations: '4' },
+     * //     { id: 3697234, word: 'airbagbereich', original: 'Airbagbereich', num_pronunciations: '3' }
+     * //     ...
+     * //   ]
+     * // }
      */
     popularPronouncedWords: params => sendForvoRequest({
       key,

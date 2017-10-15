@@ -1,6 +1,29 @@
 # forvo
 
-Forvo’s API gives you access to 4 million audio pronunciations and translations in over 340 languages.
+[Forvo’s](https://forvo.com/) API gives you access to 4 million audio pronunciations and translations in over 340 languages.
+
+# Getting started
+
+First you need to have Forvo to be installed locally.
+
+```bash
+npm i --save forvo
+```
+
+Now you can get the best pronunciation for a word pronounced by native speaker.
+You need to have an API key for [Forvo](https://api.forvo.com/).
+
+```javascript
+import forgoApi from 'forgo';
+
+const forgo = forgoApi({ key: 'your api key' });
+const wordPronunciations = await forgo.standardPronunciation({ word: 'auf Wiederschauen', language: 'de' })
+// {
+//   items:[
+//     { id: 5943, word: 'auf_wiederschauen', original: 'auf Wiederschauen', pathmp3: 'https://apifree.forvo.com/audio/3h3h...
+//   ]
+// }
+```
 
 # API
 
@@ -92,6 +115,20 @@ This function gets the standard (top rated) pronunciation from a word.
     -   `parameters.word` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The word you want to get its pronunciations.
     -   `parameters.language` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** To get only the pronunciations recorded in the given language.
 
+**Examples**
+
+```javascript
+import forgoApi from 'forgo';
+
+const forgo = forgoApi({ key: 'your api key' });
+const wordPronunciations = await forgo.standardPronunciation({ word: 'auf Wiederschauen', language: 'de' })
+// {
+//   items:[
+//     { id: 5943, word: 'auf_wiederschauen', original: 'auf Wiederschauen', pathmp3: 'https://apifree.forvo.com/audio/3h3h...
+//   ]
+// }
+```
+
 Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)>** Standard (top rated) pronunciation from a word
 
 ## Api.languageList
@@ -107,6 +144,23 @@ This function gets languages availables at Forvo.
     -   `parameters.order` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** Values: "name" or "code". Default is name.
     -   `parameters.minPronunciations` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)?** Values: any integer number. To get only the languagues with, at least, the given number of pronunciations.
 
+**Examples**
+
+```javascript
+import forgoApi from 'forgo';
+
+const forgo = forgoApi({ key: 'your api key' });
+const wordPronunciations = await forgo.languageList()
+// {
+//   attributes: { total: 349 },
+//   items:[
+//     { code: 'abq', en: 'Abaza' },
+//     { code: 'ab', en: 'Abkhazian' },
+//     ...
+//   ]
+// }
+```
+
 Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)>** Languages availables at Forvo.
 
 ## Api.popularLanguages
@@ -121,6 +175,23 @@ This function gets the most popular languages.
     -   `parameters.language` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** Values: Language code or "native" to get the language list with the names of the languages in their native languages. Default is English (en).
     -   `parameters.order` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** Values: "popular", "name" or "code". Default is "popular".
     -   `parameters.limit` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** Values: any integer number. Max. languages returned. Default is 10.
+
+**Examples**
+
+```javascript
+import forgoApi from 'forgo';
+
+const forgo = forgoApi({ key: 'your api key' });
+const wordPronunciations = await forgo.popularLanguages()
+// {
+//   attributes: { total: 10 },
+//   items:[
+//     { code: 'de', en: 'German' },
+//     { code: 'tt', en: 'Tatar' },
+//     ...
+//   ]
+// }
+```
 
 Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)>** The most popular languages
 
@@ -138,6 +209,23 @@ This function gets words starting with a pattern alphabetically ordered with one
     -   `parameters.pagesize` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)?** Values: any integer number between 1-100. Set the page size in results. Default is 20.
     -   `parameters.page` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)?** Values: any integer number. Set the page results you want to retrieve. Default is 1.
 
+**Examples**
+
+```javascript
+import forgoApi from 'forgo';
+
+const forgo = forgoApi({ key: 'your api key' });
+const wordPronunciations = await forgo.pronouncedWordsSearch({ search: 'aus', language: 'de' })
+// {
+//   attributes: attributes: { page: 1, pagesize: 20, total_pages: 7, total: 121 },
+//   items:[
+//     { id: 20945, word: 'aus', original: 'aus', num_pronunciations: '4', standard_pronunciation: ... },
+//     { id: 20945, word: 'aus_dem_weg_gehen', original: 'aus dem Weg gehen', num_pronunciations ... }
+//     ...
+//   ]
+// }
+```
+
 Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)>** Words starting with a pattern alphabetically ordered with one or more pronunciations
 
 ## Api.wordsSearch
@@ -154,6 +242,23 @@ This function gets words starting with a pattern alphabetically ordered.
     -   `parameters.pagesize` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)?** Values: any integer number between 1-100. Set the page size in results. Default is 20.
     -   `parameters.page` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)?** Values: any integer number. Set the page results you want to retrieve. Default is 1.
 
+**Examples**
+
+```javascript
+import forgoApi from 'forgo';
+
+const forgo = forgoApi({ key: 'your api key' });
+const wordPronunciations = await forgo.wordsSearch({ search: 'aus', language: 'de' })
+// {
+//   attributes: attributes: { page: 1, pagesize: 20, total_pages: 7, total: 121 },
+//   items:[
+//     { id: 20945, word: 'aus', original: 'aus', num_pronunciations: '4', standard_pronunciation: ... },
+//     { id: 20945, word: 'aus_dem_weg_gehen', original: 'aus dem Weg gehen', num_pronunciations ... }
+//     ...
+//   ]
+// }
+```
+
 Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)>** Words starting with a pattern alphabetically ordered
 
 ## Api.popularPronouncedWords
@@ -167,5 +272,22 @@ This function gets the most popular words with, at least, one pronunciation.
 -   `parameters` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Parameters object provided for Forgo api
     -   `parameters.language` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** To get only the words in the given language.
     -   `parameters.limit` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)?** Values: any integer number. Max. word returned. Default is 1000.
+
+**Examples**
+
+```javascript
+import forgoApi from 'forgo';
+
+const forgo = forgoApi({ key: 'your api key' });
+const wordPronunciations = await forgo.popularPronouncedWords({ language: 'de' })
+// {
+//   attributes: { total: 993 },
+//   items:[
+//     { id: 5619, word: 'adidas', original: 'Adidas', num_pronunciations: '4' },
+//     { id: 3697234, word: 'airbagbereich', original: 'Airbagbereich', num_pronunciations: '3' }
+//     ...
+//   ]
+// }
+```
 
 Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)>** The most popular words with, at least, one pronunciation.
