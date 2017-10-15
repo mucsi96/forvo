@@ -17,12 +17,16 @@ You need to have an API key for [Forvo](https://api.forvo.com/).
 import forgoApi from 'forgo';
 
 const forgo = forgoApi({ key: 'your api key' });
-const wordPronunciations = await forgo.standardPronunciation({ word: 'auf Wiederschauen', language: 'de' })
-// {
-//   items:[
-//     { id: 5943, word: 'auf_wiederschauen', original: 'auf Wiederschauen', pathmp3: 'https://apifree.forvo.com/audio/3h3h...
-//   ]
-// }
+const start = async () => {
+    const wordPronunciations = await forgo.standardPronunciation({ word: 'auf Wiederschauen', language: 'de' })
+    // {
+    //   items:[
+    //     { id: 5943, word: 'auf_wiederschauen', original: 'auf Wiederschauen', pathmp3: 'https://apifree.forvo.com/audio/3h3h...
+    //   ]
+    // }
+}
+
+start().catch(err => console.log(err.stack));
 ```
 
 # API
@@ -92,13 +96,17 @@ This function gets all the pronunciations from a word.
 import forgoApi from 'forgo';
 
 const forgo = forgoApi({ key: 'your api key' });
-const wordPronunciations = await forgo.wordPronunciations({ word: 'Apfel', language: 'de' })
-// {
-//   attributes: { total: 11 },
-//   items:[
-//     { id: 5943, word: 'apfel', original: 'Apfel', pathmp3: 'https://apifree.forvo.com/audio/3h3h...
-//   ]
-// }
+const start = async () => {
+  const wordPronunciations = await forgo.wordPronunciations({ word: 'Apfel', language: 'de' })
+  // {
+  //   attributes: { total: 11 },
+  //   items:[
+  //     { id: 5943, word: 'apfel', original: 'Apfel', pathmp3: 'https://apifree.forvo.com/audio/3h3h...
+  //   ]
+  // }
+}
+
+start().catch(err => console.log(err.stack));
 ```
 
 Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)>** All the pronunciations from a word
@@ -121,12 +129,16 @@ This function gets the standard (top rated) pronunciation from a word.
 import forgoApi from 'forgo';
 
 const forgo = forgoApi({ key: 'your api key' });
-const wordPronunciations = await forgo.standardPronunciation({ word: 'auf Wiederschauen', language: 'de' })
-// {
-//   items:[
-//     { id: 5943, word: 'auf_wiederschauen', original: 'auf Wiederschauen', pathmp3: 'https://apifree.forvo.com/audio/3h3h...
-//   ]
-// }
+const start = async () => {
+  const wordPronunciations = await forgo.standardPronunciation({ word: 'auf Wiederschauen', language: 'de' })
+  // {
+  //   items:[
+  //     { id: 5943, word: 'auf_wiederschauen', original: 'auf Wiederschauen', pathmp3: 'https://apifree.forvo.com/audio/3h3h...
+  //   ]
+  // }
+}
+
+start().catch(err => console.log(err.stack));
 ```
 
 Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)>** Standard (top rated) pronunciation from a word
@@ -150,15 +162,19 @@ This function gets languages availables at Forvo.
 import forgoApi from 'forgo';
 
 const forgo = forgoApi({ key: 'your api key' });
-const wordPronunciations = await forgo.languageList()
-// {
-//   attributes: { total: 349 },
-//   items:[
-//     { code: 'abq', en: 'Abaza' },
-//     { code: 'ab', en: 'Abkhazian' },
-//     ...
-//   ]
-// }
+const start = async () => {
+  const wordPronunciations = await forgo.languageList()
+  // {
+  //   attributes: { total: 349 },
+  //   items:[
+  //     { code: 'abq', en: 'Abaza' },
+  //     { code: 'ab', en: 'Abkhazian' },
+  //     ...
+  //   ]
+  // }
+}
+
+start().catch(err => console.log(err.stack));
 ```
 
 Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)>** Languages availables at Forvo.
@@ -182,15 +198,19 @@ This function gets the most popular languages.
 import forgoApi from 'forgo';
 
 const forgo = forgoApi({ key: 'your api key' });
-const wordPronunciations = await forgo.popularLanguages()
-// {
-//   attributes: { total: 10 },
-//   items:[
-//     { code: 'de', en: 'German' },
-//     { code: 'tt', en: 'Tatar' },
-//     ...
-//   ]
-// }
+const start = async () => {
+  const wordPronunciations = await forgo.popularLanguages()
+  // {
+  //   attributes: { total: 10 },
+  //   items:[
+  //     { code: 'de', en: 'German' },
+  //     { code: 'tt', en: 'Tatar' },
+  //     ...
+  //   ]
+  // }
+}
+
+start().catch(err => console.log(err.stack));
 ```
 
 Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)>** The most popular languages
@@ -215,15 +235,19 @@ This function gets words starting with a pattern alphabetically ordered with one
 import forgoApi from 'forgo';
 
 const forgo = forgoApi({ key: 'your api key' });
-const wordPronunciations = await forgo.pronouncedWordsSearch({ search: 'aus', language: 'de' })
-// {
-//   attributes: attributes: { page: 1, pagesize: 20, total_pages: 7, total: 121 },
-//   items:[
-//     { id: 20945, word: 'aus', original: 'aus', num_pronunciations: '4', standard_pronunciation: ... },
-//     { id: 20945, word: 'aus_dem_weg_gehen', original: 'aus dem Weg gehen', num_pronunciations ... }
-//     ...
-//   ]
-// }
+const start = async () => {
+  const wordPronunciations = await forgo.pronouncedWordsSearch({ search: 'aus', language: 'de' })
+  // {
+  //   attributes: attributes: { page: 1, pagesize: 20, total_pages: 7, total: 121 },
+  //   items:[
+  //     { id: 20945, word: 'aus', original: 'aus', num_pronunciations: '4', standard_pronunciation: ... },
+  //     { id: 20945, word: 'aus_dem_weg_gehen', original: 'aus dem Weg gehen', num_pronunciations ... }
+  //     ...
+  //   ]
+  // }
+}
+
+start().catch(err => console.log(err.stack));
 ```
 
 Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)>** Words starting with a pattern alphabetically ordered with one or more pronunciations
@@ -248,15 +272,19 @@ This function gets words starting with a pattern alphabetically ordered.
 import forgoApi from 'forgo';
 
 const forgo = forgoApi({ key: 'your api key' });
-const wordPronunciations = await forgo.wordsSearch({ search: 'aus', language: 'de' })
-// {
-//   attributes: attributes: { page: 1, pagesize: 20, total_pages: 7, total: 121 },
-//   items:[
-//     { id: 20945, word: 'aus', original: 'aus', num_pronunciations: '4', standard_pronunciation: ... },
-//     { id: 20945, word: 'aus_dem_weg_gehen', original: 'aus dem Weg gehen', num_pronunciations ... }
-//     ...
-//   ]
-// }
+const start = async () => {
+  const wordPronunciations = await forgo.wordsSearch({ search: 'aus', language: 'de' })
+  // {
+  //   attributes: attributes: { page: 1, pagesize: 20, total_pages: 7, total: 121 },
+  //   items:[
+  //     { id: 20945, word: 'aus', original: 'aus', num_pronunciations: '4', standard_pronunciation: ... },
+  //     { id: 20945, word: 'aus_dem_weg_gehen', original: 'aus dem Weg gehen', num_pronunciations ... }
+  //     ...
+  //   ]
+  // }
+}
+
+start().catch(err => console.log(err.stack));
 ```
 
 Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)>** Words starting with a pattern alphabetically ordered
@@ -279,15 +307,19 @@ This function gets the most popular words with, at least, one pronunciation.
 import forgoApi from 'forgo';
 
 const forgo = forgoApi({ key: 'your api key' });
-const wordPronunciations = await forgo.popularPronouncedWords({ language: 'de' })
-// {
-//   attributes: { total: 993 },
-//   items:[
-//     { id: 5619, word: 'adidas', original: 'Adidas', num_pronunciations: '4' },
-//     { id: 3697234, word: 'airbagbereich', original: 'Airbagbereich', num_pronunciations: '3' }
-//     ...
-//   ]
-// }
+const start = async () => {
+  const wordPronunciations = await forgo.popularPronouncedWords({ language: 'de' })
+  // {
+  //   attributes: { total: 993 },
+  //   items:[
+  //     { id: 5619, word: 'adidas', original: 'Adidas', num_pronunciations: '4' },
+  //     { id: 3697234, word: 'airbagbereich', original: 'Airbagbereich', num_pronunciations: '3' }
+  //     ...
+  //   ]
+  // }
+}
+
+start().catch(err => console.log(err.stack));
 ```
 
 Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)>** The most popular words with, at least, one pronunciation.

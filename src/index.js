@@ -84,13 +84,17 @@ const forvoApi = ({ key }) => {
      * import forgoApi from 'forgo';
      *
      * const forgo = forgoApi({ key: 'your api key' });
-     * const wordPronunciations = await forgo.wordPronunciations({ word: 'Apfel', language: 'de' })
-     * // {
-     * //   attributes: { total: 11 },
-     * //   items:[
-     * //     { id: 5943, word: 'apfel', original: 'Apfel', pathmp3: 'https://apifree.forvo.com/audio/3h3h...
-     * //   ]
-     * // }
+     * const start = async () => {
+     *   const wordPronunciations = await forgo.wordPronunciations({ word: 'Apfel', language: 'de' })
+     *   // {
+     *   //   attributes: { total: 11 },
+     *   //   items:[
+     *   //     { id: 5943, word: 'apfel', original: 'Apfel', pathmp3: 'https://apifree.forvo.com/audio/3h3h...
+     *   //   ]
+     *   // }
+     * }
+     *
+     * start().catch(err => console.log(err.stack));
      */
     wordPronunciations: params => sendForvoRequest({
       key,
@@ -111,12 +115,16 @@ const forvoApi = ({ key }) => {
      * import forgoApi from 'forgo';
      *
      * const forgo = forgoApi({ key: 'your api key' });
-     * const wordPronunciations = await forgo.standardPronunciation({ word: 'auf Wiederschauen', language: 'de' })
-     * // {
-     * //   items:[
-     * //     { id: 5943, word: 'auf_wiederschauen', original: 'auf Wiederschauen', pathmp3: 'https://apifree.forvo.com/audio/3h3h...
-     * //   ]
-     * // }
+     * const start = async () => {
+     *   const wordPronunciations = await forgo.standardPronunciation({ word: 'auf Wiederschauen', language: 'de' })
+     *   // {
+     *   //   items:[
+     *   //     { id: 5943, word: 'auf_wiederschauen', original: 'auf Wiederschauen', pathmp3: 'https://apifree.forvo.com/audio/3h3h...
+     *   //   ]
+     *   // }
+     * }
+     *
+     * start().catch(err => console.log(err.stack));
      */
     standardPronunciation: params => sendForvoRequest({
       key,
@@ -138,15 +146,19 @@ const forvoApi = ({ key }) => {
      * import forgoApi from 'forgo';
      *
      * const forgo = forgoApi({ key: 'your api key' });
-     * const wordPronunciations = await forgo.languageList()
-     * // {
-     * //   attributes: { total: 349 },
-     * //   items:[
-     * //     { code: 'abq', en: 'Abaza' },
-     * //     { code: 'ab', en: 'Abkhazian' },
-     * //     ...
-     * //   ]
-     * // }
+     * const start = async () => {
+     *   const wordPronunciations = await forgo.languageList()
+     *   // {
+     *   //   attributes: { total: 349 },
+     *   //   items:[
+     *   //     { code: 'abq', en: 'Abaza' },
+     *   //     { code: 'ab', en: 'Abkhazian' },
+     *   //     ...
+     *   //   ]
+     *   // }
+     * }
+     *
+     * start().catch(err => console.log(err.stack));
      */
     languageList: params => sendForvoRequest({
       key,
@@ -168,15 +180,19 @@ const forvoApi = ({ key }) => {
      * import forgoApi from 'forgo';
      *
      * const forgo = forgoApi({ key: 'your api key' });
-     * const wordPronunciations = await forgo.popularLanguages()
-     * // {
-     * //   attributes: { total: 10 },
-     * //   items:[
-     * //     { code: 'de', en: 'German' },
-     * //     { code: 'tt', en: 'Tatar' },
-     * //     ...
-     * //   ]
-     * // }
+     * const start = async () => {
+     *   const wordPronunciations = await forgo.popularLanguages()
+     *   // {
+     *   //   attributes: { total: 10 },
+     *   //   items:[
+     *   //     { code: 'de', en: 'German' },
+     *   //     { code: 'tt', en: 'Tatar' },
+     *   //     ...
+     *   //   ]
+     *   // }
+     * }
+     *
+     * start().catch(err => console.log(err.stack));
      */
     popularLanguages: params => sendForvoRequest({
       key,
@@ -199,15 +215,19 @@ const forvoApi = ({ key }) => {
      * import forgoApi from 'forgo';
      *
      * const forgo = forgoApi({ key: 'your api key' });
-     * const wordPronunciations = await forgo.pronouncedWordsSearch({ search: 'aus', language: 'de' })
-     * // {
-     * //   attributes: attributes: { page: 1, pagesize: 20, total_pages: 7, total: 121 },
-     * //   items:[
-     * //     { id: 20945, word: 'aus', original: 'aus', num_pronunciations: '4', standard_pronunciation: ... },
-     * //     { id: 20945, word: 'aus_dem_weg_gehen', original: 'aus dem Weg gehen', num_pronunciations ... }
-     * //     ...
-     * //   ]
-     * // }
+     * const start = async () => {
+     *   const wordPronunciations = await forgo.pronouncedWordsSearch({ search: 'aus', language: 'de' })
+     *   // {
+     *   //   attributes: attributes: { page: 1, pagesize: 20, total_pages: 7, total: 121 },
+     *   //   items:[
+     *   //     { id: 20945, word: 'aus', original: 'aus', num_pronunciations: '4', standard_pronunciation: ... },
+     *   //     { id: 20945, word: 'aus_dem_weg_gehen', original: 'aus dem Weg gehen', num_pronunciations ... }
+     *   //     ...
+     *   //   ]
+     *   // }
+     * }
+     *
+     * start().catch(err => console.log(err.stack));
      */
     pronouncedWordsSearch: params => sendForvoRequest({
       key,
@@ -230,15 +250,19 @@ const forvoApi = ({ key }) => {
      * import forgoApi from 'forgo';
      *
      * const forgo = forgoApi({ key: 'your api key' });
-     * const wordPronunciations = await forgo.wordsSearch({ search: 'aus', language: 'de' })
-     * // {
-     * //   attributes: attributes: { page: 1, pagesize: 20, total_pages: 7, total: 121 },
-     * //   items:[
-     * //     { id: 20945, word: 'aus', original: 'aus', num_pronunciations: '4', standard_pronunciation: ... },
-     * //     { id: 20945, word: 'aus_dem_weg_gehen', original: 'aus dem Weg gehen', num_pronunciations ... }
-     * //     ...
-     * //   ]
-     * // }
+     * const start = async () => {
+     *   const wordPronunciations = await forgo.wordsSearch({ search: 'aus', language: 'de' })
+     *   // {
+     *   //   attributes: attributes: { page: 1, pagesize: 20, total_pages: 7, total: 121 },
+     *   //   items:[
+     *   //     { id: 20945, word: 'aus', original: 'aus', num_pronunciations: '4', standard_pronunciation: ... },
+     *   //     { id: 20945, word: 'aus_dem_weg_gehen', original: 'aus dem Weg gehen', num_pronunciations ... }
+     *   //     ...
+     *   //   ]
+     *   // }
+     * }
+     *
+     * start().catch(err => console.log(err.stack));
      */
     wordsSearch: params => sendForvoRequest({
       key,
@@ -259,15 +283,19 @@ const forvoApi = ({ key }) => {
      * import forgoApi from 'forgo';
      *
      * const forgo = forgoApi({ key: 'your api key' });
-     * const wordPronunciations = await forgo.popularPronouncedWords({ language: 'de' })
-     * // {
-     * //   attributes: { total: 993 },
-     * //   items:[
-     * //     { id: 5619, word: 'adidas', original: 'Adidas', num_pronunciations: '4' },
-     * //     { id: 3697234, word: 'airbagbereich', original: 'Airbagbereich', num_pronunciations: '3' }
-     * //     ...
-     * //   ]
-     * // }
+     * const start = async () => {
+     *   const wordPronunciations = await forgo.popularPronouncedWords({ language: 'de' })
+     *   // {
+     *   //   attributes: { total: 993 },
+     *   //   items:[
+     *   //     { id: 5619, word: 'adidas', original: 'Adidas', num_pronunciations: '4' },
+     *   //     { id: 3697234, word: 'airbagbereich', original: 'Airbagbereich', num_pronunciations: '3' }
+     *   //     ...
+     *   //   ]
+     *   // }
+     * }
+     *
+     * start().catch(err => console.log(err.stack));
      */
     popularPronouncedWords: params => sendForvoRequest({
       key,
