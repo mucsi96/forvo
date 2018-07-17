@@ -39,18 +39,18 @@ const sendForvoRequest = ({ key, action, requiredParams, params = {} }) => {
 };
 
 /**
- * This function creates Forgo api.
- * @param {object} options - Configuration object for Forgo api
- * @param {string} options.key - Your Forgo api key
+ * This function creates forvo api.
+ * @param {object} options - Configuration object for forvo api
+ * @param {string} options.key - Your forvo api key
  * @returns {API} Api
  * @example
- * import forgoApi from 'forgo';
+ * import forvoApi from 'forvo';
  *
- * const forgo = forgoApi({ key: 'your api key' });
+ * const forvo = forvoApi({ key: 'your api key' });
  */
 const forvoApi = ({ key }) => {
   /**
-   * This object represents a Forgo Api.
+   * This object represents a forvo Api.
    * @typedef {Object} Api
    * @property {Api.wordPronunciations} wordPronunciations - This function gets all the pronunciations from a word.
    * @property {Api.standardPronunciation} standardPronunciation - This function gets the standard (top rated) pronunciation from a word.
@@ -65,7 +65,7 @@ const forvoApi = ({ key }) => {
      * This function gets all the pronunciations from a word.
      * @name Api.wordPronunciations
      * @function
-     * @param {object} parameters - Parameters object provided for Forgo api
+     * @param {object} parameters - Parameters object provided for forvo api
      * @param {string} parameters.word - The word you want to get its pronunciations.
      * @param {string} [parameters.language] - To get only the pronunciations recorded in the given language.
      * @param {string} [parameters.country] - To get only the pronunciations recorded by users of this country. You should use the Alpha-3 code.
@@ -79,13 +79,13 @@ const forvoApi = ({ key }) => {
      * @param {number} [parameters.limit] - Max. pronunciations returned.
      * @param {boolean} [parameters.groupInLanguages] - Group pronunciations in languages. Default value is false.
      * @returns {Promise<Object>} - All the pronunciations from a word
-     * @see {@link https://api.forvo.com/documentation/word-pronunciations|Forgo API documentation}
+     * @see {@link https://api.forvo.com/documentation/word-pronunciations|forvo API documentation}
      * @example
-     * import forgoApi from 'forgo';
+     * import forvoApi from 'forvo';
      *
-     * const forgo = forgoApi({ key: 'your api key' });
+     * const forvo = forvoApi({ key: 'your api key' });
      * const start = async () => {
-     *   const wordPronunciations = await forgo.wordPronunciations({ word: 'Apfel', language: 'de' })
+     *   const wordPronunciations = await forvo.wordPronunciations({ word: 'Apfel', language: 'de' })
      *   // {
      *   //   attributes: { total: 11 },
      *   //   items:[
@@ -106,17 +106,17 @@ const forvoApi = ({ key }) => {
      * This function gets the standard (top rated) pronunciation from a word.
      * @name Api.standardPronunciation
      * @function
-     * @param {object} parameters - Parameters object provided for Forgo api
+     * @param {object} parameters - Parameters object provided for forvo api
      * @param {string} parameters.word - The word you want to get its pronunciations.
      * @param {string} [parameters.language] - To get only the pronunciations recorded in the given language.
      * @returns {Promise<Object>} - Standard (top rated) pronunciation from a word
-     * @see {@link https://api.forvo.com/documentation/standard-pronunciation|Forgo API documentation}
+     * @see {@link https://api.forvo.com/documentation/standard-pronunciation|forvo API documentation}
      * @example
-     * import forgoApi from 'forgo';
+     * import forvoApi from 'forvo';
      *
-     * const forgo = forgoApi({ key: 'your api key' });
+     * const forvo = forvoApi({ key: 'your api key' });
      * const start = async () => {
-     *   const wordPronunciations = await forgo.standardPronunciation({ word: 'auf Wiederschauen', language: 'de' })
+     *   const wordPronunciations = await forvo.standardPronunciation({ word: 'auf Wiederschauen', language: 'de' })
      *   // {
      *   //   items:[
      *   //     { id: 5943, word: 'auf_wiederschauen', original: 'auf Wiederschauen', pathmp3: 'https://apifree.forvo.com/audio/3h3h...
@@ -136,18 +136,18 @@ const forvoApi = ({ key }) => {
      * This function gets languages availables at Forvo.
      * @name Api.languageList
      * @function
-     * @param {object} parameters - Parameters object provided for Forgo api
+     * @param {object} parameters - Parameters object provided for forvo api
      * @param {string} [parameters.language] - Language code or "native" to get the language list with the names of the languages in their native languages. Default is English (en).
      * @param {string} [parameters.order] - Values: "name" or "code". Default is name.
      * @param {number} [parameters.minPronunciations] - Values: any integer number. To get only the languagues with, at least, the given number of pronunciations.
      * @returns {Promise<Object>} - Languages availables at Forvo.
-     * @see {@link https://api.forvo.com/documentation/language-list|Forgo API documentation}
+     * @see {@link https://api.forvo.com/documentation/language-list|forvo API documentation}
      * @example
-     * import forgoApi from 'forgo';
+     * import forvoApi from 'forvo';
      *
-     * const forgo = forgoApi({ key: 'your api key' });
+     * const forvo = forvoApi({ key: 'your api key' });
      * const start = async () => {
-     *   const wordPronunciations = await forgo.languageList()
+     *   const wordPronunciations = await forvo.languageList()
      *   // {
      *   //   attributes: { total: 349 },
      *   //   items:[
@@ -170,18 +170,18 @@ const forvoApi = ({ key }) => {
      * This function gets the most popular languages.
      * @name Api.popularLanguages
      * @function
-     * @param {object} parameters - Parameters object provided for Forgo api
+     * @param {object} parameters - Parameters object provided for forvo api
      * @param {string} [parameters.language] - Values: Language code or "native" to get the language list with the names of the languages in their native languages. Default is English (en).
      * @param {string} [parameters.order] - Values: "popular", "name" or "code". Default is "popular".
      * @param {string} [parameters.limit] - Values: any integer number. Max. languages returned. Default is 10.
      * @returns {Promise<Object>} - The most popular languages
-     * @see {@link https://api.forvo.com/documentation/language-popular|Forgo API documentation}
+     * @see {@link https://api.forvo.com/documentation/language-popular|forvo API documentation}
      * @example
-     * import forgoApi from 'forgo';
+     * import forvoApi from 'forvo';
      *
-     * const forgo = forgoApi({ key: 'your api key' });
+     * const forvo = forvoApi({ key: 'your api key' });
      * const start = async () => {
-     *   const wordPronunciations = await forgo.popularLanguages()
+     *   const wordPronunciations = await forvo.popularLanguages()
      *   // {
      *   //   attributes: { total: 10 },
      *   //   items:[
@@ -204,19 +204,19 @@ const forvoApi = ({ key }) => {
      * This function gets words starting with a pattern alphabetically ordered with one or more pronunciations.
      * @name Api.pronouncedWordsSearch
      * @function
-     * @param {object} parameters - Parameters object provided for Forgo api
+     * @param {object} parameters - Parameters object provided for forvo api
      * @param {string} parameters.search - The pattern you want to search.
      * @param {string} [parameters.language] - To get only the pronunciations recorded in the given language.
      * @param {number} [parameters.pagesize] - Values: any integer number between 1-100. Set the page size in results. Default is 20.
      * @param {number} [parameters.page] - Values: any integer number. Set the page results you want to retrieve. Default is 1.
      * @returns {Promise<Object>} - Words starting with a pattern alphabetically ordered with one or more pronunciations
-     * @see {@link https://api.forvo.com/documentation/pronounced-words-search|Forgo API documentation}
+     * @see {@link https://api.forvo.com/documentation/pronounced-words-search|forvo API documentation}
      * @example
-     * import forgoApi from 'forgo';
+     * import forvoApi from 'forvo';
      *
-     * const forgo = forgoApi({ key: 'your api key' });
+     * const forvo = forvoApi({ key: 'your api key' });
      * const start = async () => {
-     *   const wordPronunciations = await forgo.pronouncedWordsSearch({ search: 'aus', language: 'de' })
+     *   const wordPronunciations = await forvo.pronouncedWordsSearch({ search: 'aus', language: 'de' })
      *   // {
      *   //   attributes: attributes: { page: 1, pagesize: 20, total_pages: 7, total: 121 },
      *   //   items:[
@@ -239,19 +239,19 @@ const forvoApi = ({ key }) => {
      * This function gets words starting with a pattern alphabetically ordered.
      * @name Api.wordsSearch
      * @function
-     * @param {object} parameters - Parameters object provided for Forgo api
+     * @param {object} parameters - Parameters object provided for forvo api
      * @param {string} parameters.search - The pattern you want to search.
      * @param {string} [parameters.language] - To get only the pronunciations recorded in the given language.
      * @param {number} [parameters.pagesize] - Values: any integer number between 1-100. Set the page size in results. Default is 20.
      * @param {number} [parameters.page] - Values: any integer number. Set the page results you want to retrieve. Default is 1.
      * @returns {Promise<Object>} - Words starting with a pattern alphabetically ordered
-     * @see {@link https://api.forvo.com/documentation/words-search|Forgo API documentation}
+     * @see {@link https://api.forvo.com/documentation/words-search|forvo API documentation}
      * @example
-     * import forgoApi from 'forgo';
+     * import forvoApi from 'forvo';
      *
-     * const forgo = forgoApi({ key: 'your api key' });
+     * const forvo = forvoApi({ key: 'your api key' });
      * const start = async () => {
-     *   const wordPronunciations = await forgo.wordsSearch({ search: 'aus', language: 'de' })
+     *   const wordPronunciations = await forvo.wordsSearch({ search: 'aus', language: 'de' })
      *   // {
      *   //   attributes: attributes: { page: 1, pagesize: 20, total_pages: 7, total: 121 },
      *   //   items:[
@@ -274,17 +274,17 @@ const forvoApi = ({ key }) => {
      * This function gets the most popular words with, at least, one pronunciation.
      * @name Api.popularPronouncedWords
      * @function
-     * @param {object} parameters - Parameters object provided for Forgo api
+     * @param {object} parameters - Parameters object provided for forvo api
      * @param {string} [parameters.language] - To get only the words in the given language.
      * @param {number} [parameters.limit] - Values: any integer number. Max. word returned. Default is 1000.
      * @returns {Promise<Object>} - The most popular words with, at least, one pronunciation.
-     * @see {@link https://api.forvo.com/documentation/popular-pronounced-words|Forgo API documentation}
+     * @see {@link https://api.forvo.com/documentation/popular-pronounced-words|forvo API documentation}
      * @example
-     * import forgoApi from 'forgo';
+     * import forvoApi from 'forvo';
      *
-     * const forgo = forgoApi({ key: 'your api key' });
+     * const forvo = forvoApi({ key: 'your api key' });
      * const start = async () => {
-     *   const wordPronunciations = await forgo.popularPronouncedWords({ language: 'de' })
+     *   const wordPronunciations = await forvo.popularPronouncedWords({ language: 'de' })
      *   // {
      *   //   attributes: { total: 993 },
      *   //   items:[

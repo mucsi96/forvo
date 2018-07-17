@@ -1,6 +1,6 @@
 {
   "name": "forvo",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Forvo’s API gives you access to 4 million audio pronunciations and translations in over 340 languages.",
   "module": "./src/index.js",
   "main": "./lib/index.js",

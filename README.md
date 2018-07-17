@@ -14,11 +14,11 @@ Now you can get the best pronunciation for a word pronounced by native speaker.
 You need to have an API key for [Forvo](https://api.forvo.com/).
 
 ```javascript
-import forgoApi from 'forgo';
+import forvoApi from 'forvo';
 
-const forgo = forgoApi({ key: 'your api key' });
+const forvo = forvoApi({ key: 'your api key' });
 const start = async () => {
-    const wordPronunciations = await forgo.standardPronunciation({ word: 'auf Wiederschauen', language: 'de' })
+    const wordPronunciations = await forvo.standardPronunciation({ word: 'auf Wiederschauen', language: 'de' })
     // {
     //   items:[
     //     { id: 5943, word: 'auf_wiederschauen', original: 'auf Wiederschauen', pathmp3: 'https://apifree.forvo.com/audio/3h3h...
@@ -35,26 +35,26 @@ start().catch(err => console.log(err.stack));
 
 ## forvoApi
 
-This function creates Forgo api.
+This function creates forvo api.
 
 **Parameters**
 
--   `options` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Configuration object for Forgo api
-    -   `options.key` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Your Forgo api key
+-   `options` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Configuration object for forvo api
+    -   `options.key` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Your forvo api key
 
 **Examples**
 
 ```javascript
-import forgoApi from 'forgo';
+import forvoApi from 'forvo';
 
-const forgo = forgoApi({ key: 'your api key' });
+const forvo = forvoApi({ key: 'your api key' });
 ```
 
 Returns **API** Api
 
 ## Api
 
-This object represents a Forgo Api.
+This object represents a forvo Api.
 
 Type: [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 
@@ -70,13 +70,13 @@ Type: [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 
 ## Api.wordPronunciations
 
--   **See: [Forgo API documentation](https://api.forvo.com/documentation/word-pronunciations)**
+-   **See: [forvo API documentation](https://api.forvo.com/documentation/word-pronunciations)**
 
 This function gets all the pronunciations from a word.
 
 **Parameters**
 
--   `parameters` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Parameters object provided for Forgo api
+-   `parameters` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Parameters object provided for forvo api
     -   `parameters.word` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The word you want to get its pronunciations.
     -   `parameters.language` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** To get only the pronunciations recorded in the given language.
     -   `parameters.country` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** To get only the pronunciations recorded by users of this country. You should use the Alpha-3 code.
@@ -93,11 +93,11 @@ This function gets all the pronunciations from a word.
 **Examples**
 
 ```javascript
-import forgoApi from 'forgo';
+import forvoApi from 'forvo';
 
-const forgo = forgoApi({ key: 'your api key' });
+const forvo = forvoApi({ key: 'your api key' });
 const start = async () => {
-  const wordPronunciations = await forgo.wordPronunciations({ word: 'Apfel', language: 'de' })
+  const wordPronunciations = await forvo.wordPronunciations({ word: 'Apfel', language: 'de' })
   // {
   //   attributes: { total: 11 },
   //   items:[
@@ -113,24 +113,24 @@ Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ## Api.standardPronunciation
 
--   **See: [Forgo API documentation](https://api.forvo.com/documentation/standard-pronunciation)**
+-   **See: [forvo API documentation](https://api.forvo.com/documentation/standard-pronunciation)**
 
 This function gets the standard (top rated) pronunciation from a word.
 
 **Parameters**
 
--   `parameters` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Parameters object provided for Forgo api
+-   `parameters` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Parameters object provided for forvo api
     -   `parameters.word` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The word you want to get its pronunciations.
     -   `parameters.language` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** To get only the pronunciations recorded in the given language.
 
 **Examples**
 
 ```javascript
-import forgoApi from 'forgo';
+import forvoApi from 'forvo';
 
-const forgo = forgoApi({ key: 'your api key' });
+const forvo = forvoApi({ key: 'your api key' });
 const start = async () => {
-  const wordPronunciations = await forgo.standardPronunciation({ word: 'auf Wiederschauen', language: 'de' })
+  const wordPronunciations = await forvo.standardPronunciation({ word: 'auf Wiederschauen', language: 'de' })
   // {
   //   items:[
   //     { id: 5943, word: 'auf_wiederschauen', original: 'auf Wiederschauen', pathmp3: 'https://apifree.forvo.com/audio/3h3h...
@@ -145,13 +145,13 @@ Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ## Api.languageList
 
--   **See: [Forgo API documentation](https://api.forvo.com/documentation/language-list)**
+-   **See: [forvo API documentation](https://api.forvo.com/documentation/language-list)**
 
 This function gets languages availables at Forvo.
 
 **Parameters**
 
--   `parameters` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Parameters object provided for Forgo api
+-   `parameters` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Parameters object provided for forvo api
     -   `parameters.language` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** Language code or "native" to get the language list with the names of the languages in their native languages. Default is English (en).
     -   `parameters.order` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** Values: "name" or "code". Default is name.
     -   `parameters.minPronunciations` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)?** Values: any integer number. To get only the languagues with, at least, the given number of pronunciations.
@@ -159,11 +159,11 @@ This function gets languages availables at Forvo.
 **Examples**
 
 ```javascript
-import forgoApi from 'forgo';
+import forvoApi from 'forvo';
 
-const forgo = forgoApi({ key: 'your api key' });
+const forvo = forvoApi({ key: 'your api key' });
 const start = async () => {
-  const wordPronunciations = await forgo.languageList()
+  const wordPronunciations = await forvo.languageList()
   // {
   //   attributes: { total: 349 },
   //   items:[
@@ -181,13 +181,13 @@ Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ## Api.popularLanguages
 
--   **See: [Forgo API documentation](https://api.forvo.com/documentation/language-popular)**
+-   **See: [forvo API documentation](https://api.forvo.com/documentation/language-popular)**
 
 This function gets the most popular languages.
 
 **Parameters**
 
--   `parameters` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Parameters object provided for Forgo api
+-   `parameters` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Parameters object provided for forvo api
     -   `parameters.language` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** Values: Language code or "native" to get the language list with the names of the languages in their native languages. Default is English (en).
     -   `parameters.order` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** Values: "popular", "name" or "code". Default is "popular".
     -   `parameters.limit` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** Values: any integer number. Max. languages returned. Default is 10.
@@ -195,11 +195,11 @@ This function gets the most popular languages.
 **Examples**
 
 ```javascript
-import forgoApi from 'forgo';
+import forvoApi from 'forvo';
 
-const forgo = forgoApi({ key: 'your api key' });
+const forvo = forvoApi({ key: 'your api key' });
 const start = async () => {
-  const wordPronunciations = await forgo.popularLanguages()
+  const wordPronunciations = await forvo.popularLanguages()
   // {
   //   attributes: { total: 10 },
   //   items:[
@@ -217,13 +217,13 @@ Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ## Api.pronouncedWordsSearch
 
--   **See: [Forgo API documentation](https://api.forvo.com/documentation/pronounced-words-search)**
+-   **See: [forvo API documentation](https://api.forvo.com/documentation/pronounced-words-search)**
 
 This function gets words starting with a pattern alphabetically ordered with one or more pronunciations.
 
 **Parameters**
 
--   `parameters` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Parameters object provided for Forgo api
+-   `parameters` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Parameters object provided for forvo api
     -   `parameters.search` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The pattern you want to search.
     -   `parameters.language` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** To get only the pronunciations recorded in the given language.
     -   `parameters.pagesize` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)?** Values: any integer number between 1-100. Set the page size in results. Default is 20.
@@ -232,11 +232,11 @@ This function gets words starting with a pattern alphabetically ordered with one
 **Examples**
 
 ```javascript
-import forgoApi from 'forgo';
+import forvoApi from 'forvo';
 
-const forgo = forgoApi({ key: 'your api key' });
+const forvo = forvoApi({ key: 'your api key' });
 const start = async () => {
-  const wordPronunciations = await forgo.pronouncedWordsSearch({ search: 'aus', language: 'de' })
+  const wordPronunciations = await forvo.pronouncedWordsSearch({ search: 'aus', language: 'de' })
   // {
   //   attributes: attributes: { page: 1, pagesize: 20, total_pages: 7, total: 121 },
   //   items:[
@@ -254,13 +254,13 @@ Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ## Api.wordsSearch
 
--   **See: [Forgo API documentation](https://api.forvo.com/documentation/words-search)**
+-   **See: [forvo API documentation](https://api.forvo.com/documentation/words-search)**
 
 This function gets words starting with a pattern alphabetically ordered.
 
 **Parameters**
 
--   `parameters` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Parameters object provided for Forgo api
+-   `parameters` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Parameters object provided for forvo api
     -   `parameters.search` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The pattern you want to search.
     -   `parameters.language` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** To get only the pronunciations recorded in the given language.
     -   `parameters.pagesize` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)?** Values: any integer number between 1-100. Set the page size in results. Default is 20.
@@ -269,11 +269,11 @@ This function gets words starting with a pattern alphabetically ordered.
 **Examples**
 
 ```javascript
-import forgoApi from 'forgo';
+import forvoApi from 'forvo';
 
-const forgo = forgoApi({ key: 'your api key' });
+const forvo = forvoApi({ key: 'your api key' });
 const start = async () => {
-  const wordPronunciations = await forgo.wordsSearch({ search: 'aus', language: 'de' })
+  const wordPronunciations = await forvo.wordsSearch({ search: 'aus', language: 'de' })
   // {
   //   attributes: attributes: { page: 1, pagesize: 20, total_pages: 7, total: 121 },
   //   items:[
@@ -291,24 +291,24 @@ Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ## Api.popularPronouncedWords
 
--   **See: [Forgo API documentation](https://api.forvo.com/documentation/popular-pronounced-words)**
+-   **See: [forvo API documentation](https://api.forvo.com/documentation/popular-pronounced-words)**
 
 This function gets the most popular words with, at least, one pronunciation.
 
 **Parameters**
 
--   `parameters` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Parameters object provided for Forgo api
+-   `parameters` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Parameters object provided for forvo api
     -   `parameters.language` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** To get only the words in the given language.
     -   `parameters.limit` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)?** Values: any integer number. Max. word returned. Default is 1000.
 
 **Examples**
 
 ```javascript
-import forgoApi from 'forgo';
+import forvoApi from 'forvo';
 
-const forgo = forgoApi({ key: 'your api key' });
+const forvo = forvoApi({ key: 'your api key' });
 const start = async () => {
-  const wordPronunciations = await forgo.popularPronouncedWords({ language: 'de' })
+  const wordPronunciations = await forvo.popularPronouncedWords({ language: 'de' })
   // {
   //   attributes: { total: 993 },
   //   items:[
