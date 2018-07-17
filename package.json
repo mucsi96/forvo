@@ -33,13 +33,13 @@
   },
   "homepage": "https://github.com/mucsi96/forvo#readme",
   "dependencies": {
-    "request": "^2.83.0"
+    "request": "^2.87.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
-    "documentation": "^5.3.3",
-    "jest": "^21.2.1"
+    "babel-preset-env": "^1.7.0",
+    "documentation": "^8.0.1",
+    "jest": "^23.4.1"
   }
 }
