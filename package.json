@@ -1,6 +1,6 @@
 {
   "name": "forvo",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Forvo’s API gives you access to 4 million audio pronunciations and translations in over 340 languages.",
   "module": "./src/index.js",
   "main": "./lib/index.js",
@@ -33,13 +33,13 @@
   },
   "homepage": "https://github.com/mucsi96/forvo#readme",
   "dependencies": {
-    "request": "^2.87.0"
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "documentation": "^8.0.1",
-    "jest": "^23.4.1"
+    "documentation": "^8.1.2",
+    "jest": "^23.6.0"
   }
 }
