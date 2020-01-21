@@ -1,18 +1,19 @@
 {
   "name": "forvo",
-  "version": "0.2.6",
+  "version": "1.0.0",
   "description": "Forvo’s API gives you access to 4 million audio pronunciations and translations in over 340 languages.",
   "module": "./src/index.js",
   "main": "./lib/index.js",
   "engines": {
-    "node": ">= 6.0.0"
+    "node": ">= 10.0.0"
   },
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
     "build": "babel src --out-dir lib --ignore __tests__,__mocks__",
     "prepack": "npm run build",
-    "docs": "documentation readme src/index.js --section=API"
+    "docs": "documentation readme src/index.js --section=API",
+    "update:dependencies": "npx npm-check-updates -u"
   },
   "repository": {
     "type": "git",
@@ -36,10 +37,10 @@
     "request": "^2.88.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "documentation": "^8.1.2",
-    "jest": "^23.6.0"
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "documentation": "^12.1.4",
+    "jest": "^24.9.0"
   }
 }
